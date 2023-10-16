@@ -1,11 +1,10 @@
 ---
-import { Image } from 'astro:assets';
-import notelligentImage from '../img/image_1_1500x800.png';
+import Wheel from "./Wheel.svelte";
 ---
 
 <article class="project" data-index="0" data-status="active">
     <a class="preview grid-section" href="https://notesapp-44b3c.web.app/" target="_blank">
-      <Image />
+      <img src="./src/img/image_1_1500x800.png" alt="Notellegient App Preview" />
     </a>
     <div class="description grid-section">
       <p class="site-info">
@@ -21,12 +20,7 @@ import notelligentImage from '../img/image_1_1500x800.png';
       </a>
     </div>
     <div class="carousel grid-section">
-      <button class="wheel left">
-        <i class="fa-solid fa-arrow-left-long"></i>
-      </button>
-      <button class="wheel right">
-        <i class="fa-solid fa-arrow-right-long"></i>
-      </button>
+      <Wheel />
     </div>
 </article>
 
