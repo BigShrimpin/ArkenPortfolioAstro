@@ -1,0 +1,108 @@
+---
+import Navbar from "../components/Navbar.astro";
+import Article from "../components/Article.astro";
+const currentPath = Astro.url.pathname;
+const { title } = Astro.props
+---
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta data-rh="true" property="og:type" content="portfolio" />
+  <meta data-rh="true" property="og:title" content="Zach Smith's Portfolio" />
+  <script src="https://kit.fontawesome.com/f9636abd46.js" crossorigin="anonymous"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="generator" content={Astro.generator}>
+  <title>{title}</title>
+</head>
+    <body>
+        <Navbar currentPath={ currentPath } />
+        <Article />
+        <slot />
+    </body>
+</html>
+
+<style is:global>
+@import url('https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata&display=swap');
+
+:root {
+  --border-color: hsla(0, 0%, 100%, 0.3);
+  --background-color: hsl(220, 40%, 7%);
+  --background-contrast-color: hsl(218, 57%, 14%);
+  --text-color: hsl(0, 0%, 100%);
+  --purple: hsl(282, 68%, 38%);
+  --purlet: hsl(272, 55%, 45%);
+  --violet: hsl(262, 52%, 52%);
+  --violink: hsl(311, 50%, 58%);
+  --pink: hsl(340, 82%, 76%);
+  font-size: 100%;
+  font-family: 'Inconsolata', monospace;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+a,
+p {
+  font-weight: 400;
+  color: var(--text-color);
+  text-decoration: none;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: var(--background-color);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  margin: 0px;
+  overflow: hidden;
+}
+
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.active {
+  animation: background-pan 2s linear infinite;
+  background: linear-gradient(
+    to right,
+    var(--purple),
+    var(--purlet),
+    var(--violet),
+    var(--violink),
+    var(--pink),
+    var(--purple)
+  );
+  background-size: 200%;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  white-space: nowrap;
+}
+
+@keyframes background-pan {
+  from {
+    background-position: 0% center;
+  }
+
+  to {
+    background-position: -200% center;
+  }
+}
+</style>

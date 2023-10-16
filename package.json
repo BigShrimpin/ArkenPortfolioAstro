@@ -1,0 +1,21 @@
+{
+  "name": "portfoliov2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@astrojs/svelte": "^2.1.0",
+    "astro": "^2.3.2",
+    "svelte": "^3.58.0"
+  }
+}

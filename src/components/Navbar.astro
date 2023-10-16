@@ -1,0 +1,129 @@
+---
+import NavDrop from "./NavDrop.svelte";
+const { currentPath } = Astro.props;
+---
+
+<nav>
+  <div id="nav-logo" class="nav-section">
+    <a href="#">
+      <i class="fa-solid fa-crow"></i>
+      <p>Zach Smith</p>
+    </a>
+  </div>
+  <div id="nav-link" class="nav-section">
+    <span class={currentPath === "/about" ? "active":""}>
+      <a href="../about">ABOUT ME</a>
+    </span>
+    <span class={currentPath === "/" ? "active":""}>
+      <a href="../">PROJECTS</a>
+    </span>
+  </div>
+  <div id="nav-social" class="nav-section">
+    <a target="_blank" href="https://github.com/BigShrimpin">
+      <li class="fa-brands fa-github"></li>
+    </a>
+    <a target="_blank" href="https://www.linkedin.com/in/zacharyah-smith-a18850268/">
+      <li class="fa-brands fa-linkedin"></li>
+    </a>
+    <a target="_blank" href="https://www.instagram.com/big.shrimpin.14/">
+      <li class="fa-brands fa-instagram"></li>
+    </a>
+  </div>
+  <div id="nav-contact" class="nav-section">
+    <a href="../about">CONTACT</a>
+  </div>
+  <div class="nav-section" id="nav-menu">
+    <NavDrop client:visible />
+  </div>
+</nav>
+
+<style>
+nav {
+  display: flex;
+  width: 100%;
+  border-bottom: 2px solid var(--border-color);
+  background-color: var(--background-color);
+  height: 138px;
+  z-index: 2;
+}
+
+.nav-section {
+  padding: 3rem 2rem;
+  display: flex;
+  gap: 1rem;
+  border-left: 2px solid var(--border-color);
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  opacity: 1;
+  visibility: visible;
+  transition: visibility 1s linear, opacity 1s linear;
+}
+
+#nav-logo {
+  font-size: 2.5rem;
+  justify-content: flex-start;
+  border: none;
+}
+
+#nav-logo > a {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+#nav-logo,
+#nav-link {
+  flex-basis: calc(100% / 3);
+}
+
+#nav-social,
+#nav-contact {
+  flex-grow: 1;
+}
+
+#nav-link {
+  gap: 6rem;
+  font-size: 125%;
+}
+
+#nav-social {
+  gap: 3rem;
+}
+
+#nav-social > a {
+  font-size: 1.75rem;
+}
+
+#nav-menu {
+  display: none;
+}
+
+@media screen and (max-width: 1140px) {
+  #nav-contact,
+  #nav-link {
+    display: none;
+  }
+
+  #nav-social,
+  #nav-logo {
+    flex-grow: 0;
+    gap: 3rem;
+    flex: 1;
+  }
+
+  #nav-menu {
+    display: flex;
+    overflow: hidden;
+    flex-basis: calc(100% / 4);
+  }
+
+  #nav-logo {
+    font-size: 2rem;
+  }
+
+  #nav-logo > a {
+    gap: 1rem;
+  }
+}
+</style>

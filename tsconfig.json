@@ -1,0 +1,6 @@
+{
+  "compilerOptions": {
+    "forceConsistentCasingInFileNames": false,
+  },
+    "extends": "astro/tsconfigs/base",
+  }
